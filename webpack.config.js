@@ -1,4 +1,6 @@
 const path = require("path");
+//generate HTML and inject into bundle HTML
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   entry: "./src/index.ts",
@@ -18,6 +20,12 @@ module.exports = {
     filename: "bundle.js",
     path: path.resolve(__dirname, "dist"),
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      title: "a-ts-project",
+      template: "public/index.html",
+    }),
+  ],
   devServer: {
     static: path.join(__dirname, "dist"),
     compress: true,
