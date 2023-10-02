@@ -1,6 +1,8 @@
 const path = require("path");
 //generate HTML and inject into bundle HTML
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+//extracts CSS files and bundles them into a single bundle.css file
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   entry: "./src/index.ts",
@@ -10,6 +12,10 @@ module.exports = {
         test: /\.ts?$/,
         use: "ts-loader",
         exclude: /node_modules/,
+      },
+      {
+        test: /\.css$/,
+        use: [MiniCssExtractPlugin.loader, "css-loader"],
       },
     ],
   },
@@ -24,6 +30,9 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: "a-ts-project",
       template: "public/index.html",
+    }),
+    new MiniCssExtractPlugin({
+      filename: "bundle.css",
     }),
   ],
   devServer: {

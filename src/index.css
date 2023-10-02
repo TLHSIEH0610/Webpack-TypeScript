@@ -1,0 +1,12 @@
+form {
+  background: lightgray;
+  max-width: 600px;
+  margin: auto;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  padding: 2rem;
+}
+p {
+  text-align: center;
+}
