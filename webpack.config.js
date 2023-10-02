@@ -3,6 +3,10 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 //extracts CSS files and bundles them into a single bundle.css file
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+//reduce the size of CSS files by removing unused CSS
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+//js minimizer
+const TerserPlugin = require("terser-webpack-plugin");
 
 module.exports = {
   entry: "./src/index.ts",
@@ -25,6 +29,9 @@ module.exports = {
   output: {
     filename: "bundle.js",
     path: path.resolve(__dirname, "dist"),
+  },
+  optimization: {
+    minimizer: [new CssMinimizerPlugin(), new TerserPlugin()],
   },
   plugins: [
     new HtmlWebpackPlugin({
