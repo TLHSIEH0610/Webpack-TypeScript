@@ -1,0 +1,26 @@
+{
+  "name": "webpack-typescript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TLHSIEH0610/Webpack-TypeScript.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TLHSIEH0610/Webpack-TypeScript/issues"
+  },
+  "homepage": "https://github.com/TLHSIEH0610/Webpack-TypeScript#readme",
+  "devDependencies": {
+    "ts-loader": "^9.4.4",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1"
+  }
+}
