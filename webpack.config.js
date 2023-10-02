@@ -7,6 +7,8 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 //js minimizer
 const TerserPlugin = require("terser-webpack-plugin");
+//copy application assets from the development folder into the build folder
+const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
   entry: "./src/index.ts",
@@ -40,6 +42,9 @@ module.exports = {
     }),
     new MiniCssExtractPlugin({
       filename: "bundle.css",
+    }),
+    new CopyPlugin({
+      patterns: [{ from: "src/images", to: "images" }],
     }),
   ],
   devServer: {
